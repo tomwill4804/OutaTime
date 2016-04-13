@@ -18,22 +18,27 @@
     //    The last is an NSInteger object to hold the current speed of the DeLorean.
     //
     
-//    NSTimer
-//    NSDateFormatter
-//    NSInteger
+    NSTimer *timer;
+    NSDate *newDate;
+    
 }
 
+@property (assign, nonatomic) NSInteger speed;
+
 // These are the properties that will be wired up to the labels in the storyboard. If the circles to the left of them are hollow, they have not been connected in the storyboard.
+
 @property (weak, nonatomic) IBOutlet UILabel *destinationTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *lastTimeDepartedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *presentTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *speedLabel;
 
 // This is an IBAction. It is a method that will fire when the element it's connected to fires an event of your choosing.
+
 - (IBAction)travelBack:(UIButton *)sender;
 - (IBAction)myUnwindAction:(UIStoryboardSegue*)unwindSegue;
 
 // These are private custom methods
+
 - (void)startTimer;
 - (void)stopTimer;
 - (void)updateSpeed;
@@ -42,6 +47,15 @@
 
 @implementation TimeCircuitsViewController
 
+
+//
+// set label whenever the speed changes
+//
+- (void)setSpeed:(NSInteger)newValue {
+    _speed = newValue;
+    self.speedLabel.text = [NSString stringWithFormat:@"%ld", (long)_speed];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -49,11 +63,14 @@
     //
     // 2. The view should be titled "Time Circuits"
     //
+    self.title = @"Time Circuits";
     
     //
     // 3. This is a good place to initialize the objects that will be used later on.
     //    The date formatter object you created above need to be instantiated.
     //
+    
+    
     
     //
     // 4. Once created, the formatString you see below needs to be set as the date formatter's dateFormat
@@ -70,16 +87,17 @@
     //
     // 6. The currentSpeed integer object needs to be set to 0 to start.
     //
-
+    self.speed = 0;
     
     //
     // 7. The speedLabel should be set to "% MPH", with the % being the current speed
     //
-
+    
     
     //
     // 8. The lastTimeDeparted label needs to be set to "--- -- ----"
     //
+    self.lastTimeDepartedLabel.text = @"___ __ ____";
 
 }
 
@@ -118,7 +136,7 @@
     //
     // 12. The destinationTimeLabel needs to be set to the destination date using our date formatter object
     //
-    NSLog(@"xx");
+    newDate = destinationDate;
     
 }
 
@@ -143,19 +161,18 @@
     //
     //    NOTE: !NO below is just a placeholder.
     //
-    if (!NO)
+    if (!timer)
     {
         //
         // 15. Below is an example of a timer being instantiated with a particular interval and firing a particular
         //    method each time the time interval has elapsed. Use this to instantiate your timer for 0.1 sec intervals. It
         //    will need to fire our custom method to update the speed label.
         //
-        
-//        NSTimer *aTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
-//                                                           target:self
-//                                                         selector:@selector(updateSpeed)
-//                                                         userInfo:nil
-//                                                          repeats:YES];
+        timer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                          target:self
+                                                        selector:@selector(updateSpeed)
+                                                        userInfo:nil
+                                                        repeats:YES];
         
     }
 }
@@ -167,7 +184,8 @@
     //    Once it's stopped, we want to nil out the object so we can create a new one when the user asks to travel back
     //    again.
     //
-
+    [timer invalidate];
+    timer = nil;
     
 }
 
@@ -176,33 +194,35 @@
     //
     // 17. We need to check if the current speed variable is set to 88 yet.
     //
-    if (88)
+    if (self.speed >= 88)
     {
         //
         // 18. If it's not yet set to 88, we want to increment the current speed variable by 1.
         //
-        
+        self.speed += 10;
         //
         // 19. Here we want to update the speed label to reflect the current speed.
         //
+        
     }
     else
     {
         //
         // 20. If the speed variable is at least 88, we want to stop the timer here.
         //
-
+        [self stopTimer];
         //
         // 21. Then we need to update the lastTimeDepartedLabel with the value of the presentTimeLabel.
         //
-
+        self.lastTimeDepartedLabel.text = self.presentTimeLabel.text;
         //
         // 22. The presentTimeLabel needs to take the value of the destinationTimeLabel here.
         //
-        
+        self.presentTimeLabel.text = self.destinationTimeLabel.text;
         //
         // 23. Lastly, we need to reset the current speed label to 0 here.
         //
+        self.speed = 0;
         
     }
 }
