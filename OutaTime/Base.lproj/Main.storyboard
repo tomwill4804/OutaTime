@@ -161,7 +161,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mWS-lZ-o6L">
                                 <rect key="frame" x="0.0" y="50" width="600" height="44"/>
                                 <items>
-                                    <navigationItem title="Title" id="Lpm-QJ-vg4">
+                                    <navigationItem title="Select Date" id="Lpm-QJ-vg4">
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="eiw-qo-5Ic">
                                             <connections>
                                                 <segue destination="ZrI-kd-b80" kind="unwind" identifier="cancel" unwindAction="myUnwindAction:" id="9tk-Qw-PiH"/>
