@@ -164,12 +164,12 @@
                                     <navigationItem title="Title" id="Lpm-QJ-vg4">
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="eiw-qo-5Ic">
                                             <connections>
-                                                <segue destination="ZrI-kd-b80" kind="unwind" unwindAction="myUnwindAction:" id="9tk-Qw-PiH"/>
+                                                <segue destination="ZrI-kd-b80" kind="unwind" identifier="cancel" unwindAction="myUnwindAction:" id="9tk-Qw-PiH"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Set Date" id="1fj-W9-PrI">
                                             <connections>
-                                                <segue destination="ZrI-kd-b80" kind="unwind" unwindAction="myUnwindAction:" id="TK4-LP-r5Q"/>
+                                                <segue destination="ZrI-kd-b80" kind="unwind" identifier="set" unwindAction="myUnwindAction:" id="TK4-LP-r5Q"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>

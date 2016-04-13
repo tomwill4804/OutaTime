@@ -11,6 +11,8 @@
 
 @interface DatePickerViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+
 @property (strong, nonatomic) id<TimeCircuitsDatePickerDelegate> delegate;
 
 @end

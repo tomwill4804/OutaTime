@@ -125,6 +125,13 @@
 }
 
 - (IBAction)myUnwindAction:(UIStoryboardSegue*)unwindSegue{
+    if ([unwindSegue.identifier isEqualToString:@"cancel"])
+    {
+        DatePickerViewController *timePickerVC = (DatePickerViewController *)[unwindSegue sourceViewController];
+        timePickerVC.datePicker = nil;
+  
+    }
+
     
     
 }

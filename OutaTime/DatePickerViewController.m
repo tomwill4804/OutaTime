@@ -10,7 +10,6 @@
 
 @interface DatePickerViewController ()
 
-@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UINavigationItem *setButton;
 
 @end
@@ -30,7 +29,9 @@
     // 11. We need to call a method to tell the delegate that a destination date was chosen and pass the date from the
     //    datePicker object.
     //
-    [self.delegate destinationDateWasChosen:_datePicker.date];
+    if (self.datePicker != nil) {
+        [self.delegate destinationDateWasChosen:_datePicker.date];
+    }
     
 }
 
