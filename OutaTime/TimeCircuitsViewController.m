@@ -100,6 +100,8 @@
         // 10. This view controller needs to be set as the time picker view controller's delegate object.
         //
         
+        timePickerVC.delegate = self;
+        
     }
 }
 
