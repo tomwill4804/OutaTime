@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="digital-7.ttf">
@@ -133,7 +134,7 @@
             </objects>
             <point key="canvasLocation" x="1372" y="429"/>
         </scene>
-        <!--Date Picker View Controller-->
+        <!--Item-->
         <scene sceneID="SpG-af-3vy">
             <objects>
                 <viewController id="bBv-ya-q7Q" customClass="DatePickerViewController" sceneMemberID="viewController">
@@ -145,8 +146,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="H9E-IV-AOj">
-                                <rect key="frame" x="106" y="209" width="388" height="181"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="H9E-IV-AOj">
+                                <rect key="frame" x="62" y="192" width="476" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="445876717.15564197">
                                     <!--2015-02-17 14:38:37 +0000-->
                                 </date>
@@ -157,24 +158,39 @@
                                     <!--2045-12-31 11:00:00 +0000-->
                                 </date>
                             </datePicker>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="05V-f6-CCs">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mWS-lZ-o6L">
+                                <rect key="frame" x="0.0" y="50" width="600" height="44"/>
                                 <items>
-                                    <navigationItem title="Title" id="xnx-2s-hTO"/>
+                                    <navigationItem title="Title" id="Lpm-QJ-vg4">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="eiw-qo-5Ic">
+                                            <connections>
+                                                <segue destination="ZrI-kd-b80" kind="unwind" unwindAction="myUnwindAction:" id="9tk-Qw-PiH"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Set Date" id="1fj-W9-PrI">
+                                            <connections>
+                                                <segue destination="ZrI-kd-b80" kind="unwind" unwindAction="myUnwindAction:" id="TK4-LP-r5Q"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9a-MO-DTF">
-                                <rect key="frame" x="246" y="506" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="ZrI-kd-b80" kind="unwind" unwindAction="myUnwindAction:" id="MOr-Rm-7B3"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="H9E-IV-AOj" secondAttribute="centerX" id="62K-3t-wuI"/>
+                            <constraint firstItem="H9E-IV-AOj" firstAttribute="centerY" secondItem="0M6-CM-Cq0" secondAttribute="centerY" id="6hW-va-Kf2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mWS-lZ-o6L" secondAttribute="trailing" constant="-20" id="GOt-kI-Lcf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="H9E-IV-AOj" secondAttribute="trailing" constant="42" id="NCZ-gJ-nLw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mWS-lZ-o6L" secondAttribute="trailing" constant="-20" id="Pda-0S-LHo"/>
+                            <constraint firstItem="H9E-IV-AOj" firstAttribute="centerX" secondItem="0M6-CM-Cq0" secondAttribute="centerX" id="ST7-EU-ijw"/>
+                            <constraint firstItem="H9E-IV-AOj" firstAttribute="top" secondItem="mWS-lZ-o6L" secondAttribute="bottom" constant="74" id="SUO-cc-qKC"/>
+                            <constraint firstItem="mWS-lZ-o6L" firstAttribute="top" secondItem="PxX-lT-acD" secondAttribute="bottom" constant="30" id="cVn-0t-oC7"/>
+                            <constraint firstItem="mWS-lZ-o6L" firstAttribute="leading" secondItem="0M6-CM-Cq0" secondAttribute="leadingMargin" constant="-20" id="iC2-oQ-uIn"/>
+                            <constraint firstItem="H9E-IV-AOj" firstAttribute="top" secondItem="mWS-lZ-o6L" secondAttribute="bottom" constant="98" id="krC-gS-3FG"/>
                             <constraint firstAttribute="centerY" secondItem="H9E-IV-AOj" secondAttribute="centerY" id="miv-Hn-k06"/>
+                            <constraint firstItem="mWS-lZ-o6L" firstAttribute="leading" secondItem="0M6-CM-Cq0" secondAttribute="leadingMargin" constant="-20" id="qwm-sT-DhR"/>
+                            <constraint firstItem="mWS-lZ-o6L" firstAttribute="top" secondItem="0M6-CM-Cq0" secondAttribute="topMargin" id="ypC-Y0-erx"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -183,8 +199,11 @@
                             </mask>
                         </variation>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="L9U-vE-EG3"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="datePicker" destination="H9E-IV-AOj" id="q64-Pj-ou6"/>
+                        <outlet property="setButton" destination="Lpm-QJ-vg4" id="g1p-zQ-89e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AjJ-Yj-yzi" userLabel="First Responder" sceneMemberID="firstResponder"/>

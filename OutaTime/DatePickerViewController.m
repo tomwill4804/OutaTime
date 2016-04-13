@@ -11,6 +11,7 @@
 @interface DatePickerViewController ()
 
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (weak, nonatomic) IBOutlet UINavigationItem *setButton;
 
 @end
 
@@ -38,5 +39,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)setDate:(UIButton *)sender{
+    [self.delegate destinationDateWasChosen:_datePicker.date];
+}
+
+
 
 @end

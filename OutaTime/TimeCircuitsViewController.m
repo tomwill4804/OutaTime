@@ -19,7 +19,7 @@
     //
     
     NSTimer *timer;
-    NSDate *newDate;
+    NSDateFormatter *dateFormat;
     
 }
 
@@ -71,20 +71,18 @@
     // 3. This is a good place to initialize the objects that will be used later on.
     //    The date formatter object you created above need to be instantiated.
     //
-    
+    dateFormat = [[NSDateFormatter alloc] init];
     
     
     //
     // 4. Once created, the formatString you see below needs to be set as the date formatter's dateFormat
     //
-    NSString *formatString = [NSDateFormatter dateFormatFromTemplate:@"MMMddyyyy"
-                                                             options:0
-                                                              locale:[NSLocale currentLocale]];
+    [dateFormat setDateFormat:@"MMM dd yyyy"];
     
     //
     // 5. The presentTimeLabel needs to be set to today's date. Use the dateFormatter object to do this.
     //
-    
+    self.presentTimeLabel.text = [dateFormat stringFromDate:[NSDate date]];
     
     //
     // 6. The currentSpeed integer object needs to be set to 0 to start.
@@ -138,7 +136,7 @@
     //
     // 12. The destinationTimeLabel needs to be set to the destination date using our date formatter object
     //
-    newDate = destinationDate;
+    self.destinationTimeLabel.text = [dateFormat stringFromDate:destinationDate];
     
 }
 
