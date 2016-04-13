@@ -54,19 +54,21 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqc-un-dV3">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dqc-un-dV3">
                                 <rect key="frame" x="260" y="459" width="79" height="30"/>
-                                <state key="normal" title="Travel Back"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Travel Back">
+                                            <attributes>
+                                                <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
                                 <connections>
                                     <action selector="travelBack:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hbC-xL-9a1"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JAN 01 2000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9G3-Jw-nUV">
-                                <rect key="frame" x="210" y="70" width="180" height="36.5"/>
-                                <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="40"/>
-                                <color key="textColor" red="0.78903317451477051" green="0.18061754107475281" blue="0.16475954651832581" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KUb-Ue-yrv">
                                 <rect key="frame" x="263" y="123" width="75" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -79,7 +81,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SvV-jk-aWZ">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SvV-jk-aWZ">
                                 <rect key="frame" x="162" y="70" width="32" height="30"/>
                                 <state key="normal" title="Set.."/>
                                 <connections>
@@ -88,6 +90,12 @@
                                     </segue>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JAN 01 2000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9G3-Jw-nUV">
+                                <rect key="frame" x="210" y="70" width="180" height="36.5"/>
+                                <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="40"/>
+                                <color key="textColor" red="0.78903317451477051" green="0.18061754107475281" blue="0.16475954651832581" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.20984494686126709" green="0.2098878026008606" blue="0.20984223484992981" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -96,7 +104,6 @@
                             <constraint firstAttribute="centerX" secondItem="FJj-oG-KHX" secondAttribute="centerX" id="2Ew-BK-hs1"/>
                             <constraint firstItem="k7t-FG-JFS" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="7oM-fb-utC"/>
                             <constraint firstItem="KUb-Ue-yrv" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="DLT-D8-TwT"/>
-                            <constraint firstItem="SvV-jk-aWZ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="50" id="EGs-Rt-DBR"/>
                             <constraint firstItem="MZG-Pv-Rts" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="NTH-ny-nBx"/>
                             <constraint firstItem="EDB-7R-ORk" firstAttribute="top" secondItem="sFj-iu-ddb" secondAttribute="bottom" constant="16.5" id="TAb-My-REn"/>
                             <constraint firstItem="dqc-un-dV3" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Udr-b7-jP7"/>
@@ -108,7 +115,6 @@
                             <constraint firstItem="F4J-a5-EN5" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="pVG-3L-TfW"/>
                             <constraint firstItem="FJj-oG-KHX" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="20" id="tom-6k-ZlW"/>
                             <constraint firstItem="MZG-Pv-Rts" firstAttribute="top" secondItem="KUb-Ue-yrv" secondAttribute="bottom" constant="21" id="uXD-Ss-hbv"/>
-                            <constraint firstItem="SvV-jk-aWZ" firstAttribute="top" secondItem="MZG-Pv-Rts" secondAttribute="bottom" constant="2" id="uy2-tm-ITi"/>
                             <constraint firstItem="FJj-oG-KHX" firstAttribute="centerX" secondItem="9G3-Jw-nUV" secondAttribute="centerX" id="vjD-KC-Jzd"/>
                             <constraint firstItem="F4J-a5-EN5" firstAttribute="top" secondItem="EDB-7R-ORk" secondAttribute="bottom" constant="22.5" id="ybW-Xv-8oh"/>
                             <constraint firstItem="9G3-Jw-nUV" firstAttribute="leading" secondItem="SvV-jk-aWZ" secondAttribute="trailing" constant="16" id="z5P-cK-cqo"/>

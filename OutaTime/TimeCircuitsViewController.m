@@ -48,13 +48,15 @@
 @implementation TimeCircuitsViewController
 
 
+
 //
 // set label whenever the speed changes
 //
 - (void)setSpeed:(NSInteger)newValue {
     _speed = newValue;
-    self.speedLabel.text = [NSString stringWithFormat:@"%ld", (long)_speed];
+    self.speedLabel.text = [NSString stringWithFormat:@"%ld MPH", (long)_speed];
 }
+
 
 - (void)viewDidLoad
 {
@@ -148,6 +150,8 @@
     // 13. This is where we will start counting the speedometer up to 88 MPH. We need to use the timer object to do that. Is
     //    there a method defined that will allow us to get the timer started?
     //
+    
+    [self startTimer];
 
 }
 
@@ -184,6 +188,7 @@
     //    Once it's stopped, we want to nil out the object so we can create a new one when the user asks to travel back
     //    again.
     //
+    
     [timer invalidate];
     timer = nil;
     
@@ -194,7 +199,7 @@
     //
     // 17. We need to check if the current speed variable is set to 88 yet.
     //
-    if (self.speed >= 88)
+    if (self.speed < 88)
     {
         //
         // 18. If it's not yet set to 88, we want to increment the current speed variable by 1.
